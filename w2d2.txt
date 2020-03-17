@@ -1,0 +1,22 @@
+/* 
+  Recreate the pop method without using .pop()
+*/
+function pop(array){
+  array.length = array.length - 1;
+  return array;
+}
+
+
+/* 
+  Array: Pop Front
+  Given an array, remove and return the value at the beginning of the array.
+  Do this without using any built-in array methods except pop().
+*/
+function popFront(array){
+  var answer = array[0];
+  for(var idx = 1;idx < array.length;idx++){
+    array[idx-1] = array[idx];
+  }
+  array.pop();
+  return answer;
+}

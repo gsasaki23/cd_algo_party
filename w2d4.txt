@@ -1,0 +1,61 @@
+/* 
+  Array: Remove At
+  Input: Array, index
+  Output: Same array with item at index removed
+    and items shifted to fill empty space
+  No built-in array methods except pop().
+*/
+
+function removeAt(array, int){
+  if(int > 0){
+      for(var idx = int;idx < array.length-1; idx++){
+        [array[idx],array[idx+1]]=[array[idx+1],array[idx]];
+      }
+      array.pop();
+  }
+  return array; 
+}
+
+
+/* 
+  Array: Min to Front
+  No built in methods
+  Input: Array of ints
+  Output: Same array in same order except min int moved to front
+*/
+
+		// answer
+function minToFront(array){
+// find min & minIdx
+  var min = array[0];
+  var minIdx = 0;
+  
+  for(var idx=0;idx<array.length;idx++){
+    if(min > array[idx]){
+      min = array[idx];
+      minIdx = idx;
+    }
+  }
+// shift entire array right one index
+  for(var idx=array.length;idx>0;idx--){
+    array[idx] = array[idx-1];
+  }
+  
+// insert min to idx=0
+  array[0] = min;
+  
+// get rid of blank
+  removeAt(array,minIdx+1);
+  
+  return array; 
+} 
+
+
+	// incorrect answer (what i did on whiteboard - wrong because it'll permute unwanted small ints closer to right)
+function minToFront(array){
+  for(var idx=array.length-1;idx>0;idx--){
+    if(array[idx]<array[idx-1]){
+      [array[idx],array[idx-1]]=[array[idx-1],array[idx]];
+    }
+  }
+}

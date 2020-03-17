@@ -1,0 +1,39 @@
+/**
+ * Input: Two arrays of equal length containing integers
+ * Output: A new array where each item is the sum of
+ * the items in arr1 and arr2 at that same index
+ * 
+ * Example:
+ * Input: [1, 2, 3], [4, 5, 6]
+ * Output: [5, 7, 9]
+ */
+function condense(arrayA, arrayB){
+  var answer = [];
+  for(var idx=0;idx<arrayA.length;idx++){
+    answer.push(arrayA[idx]+arrayB[idx]);
+  }
+  return answer;
+}
+
+
+
+
+
+/**
+ * Input: a 2 minesional array of integers
+ * Output: A 1 dimensional array of all the same elements preserving original order
+ * 
+ * Example:
+ * Input: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ * Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ */
+
+function flatten(array){
+  var answer = [];
+  for(var idx1=0;idx1<array.length;idx1++){
+    for(var idx2=0;idx2<array[idx1].length;idx2++){
+      answer.push(array[idx1][idx2]);
+    }
+  }
+  return answer;
+}

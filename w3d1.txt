@@ -1,0 +1,49 @@
+/* 
+  1. Create a function that, given a string, returns the string's acronym 
+  (first letter of each word capitalized). 
+  Input: " there's no free lunch - gotta pay yer way. "
+  Output: "TNFL-GPYW"
+  Input: "Live from New York, it's Saturday Night!"
+  Output: "LFNYISN"
+  Do it with .split first, then try to do it without
+*/
+
+function acronymWithSplit(str){
+  var temp = str.trim().split(" ");
+  console.log(temp);
+  var answer = "";
+  for(var idx=0;idx<temp.length;idx++){
+       answer+=temp[idx][0];
+  }
+  return answer.toUpperCase();
+}
+function acronymWithoutSplit(str){
+  var answer = "";
+  
+  if(str.length > 0 && str[0] != " "){
+    answer += str[0];
+  }
+  for(var idx=1;idx<str.length;idx++){
+    if((str[idx]!=" ")&&(str[idx-1]==" ")){
+      answer+=str[idx];
+    }
+  }
+  return answer.toUpperCase();
+}
+
+
+/* 
+  2. String: Reverse
+  Implement reverseString(str)
+  Input: "creature"
+  Output: "erutaerc"
+*/
+function reverseString(str){
+  var answer = "";
+  for(var i = str.length-1; i>=0;i--){
+    answer+=str[i];
+  }
+  return answer;
+}
+
+

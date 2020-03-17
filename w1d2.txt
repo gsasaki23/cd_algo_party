@@ -1,0 +1,120 @@
+// Algorithms - W1D3
+// #1 - Print int 1 through 100
+for(var i=1;i<=100;i++){
+  console.log(i);
+}
+
+// #2 - Print int 1 through 100 backwards
+for(var i=100;i>=1;i--){
+  console.log(i);
+}
+
+// #3 - Print ints evenly divisible by 5 between 1 and 100
+for(var i=1;i<100;i++){
+  if(i % 5 === 0){
+    console.log(i);
+  }
+}
+
+// #4 - Print sum of given array of ints
+function arraySum(array){
+  var sum = 0;
+  for(var i=0;i<=array.length;i++){
+    sum+=i;
+  }
+  console.log(sum);
+}
+//should print 15
+arraySum([1,2,3,4,5]);
+
+// #5 - Given array of ints, return new array with even ints
+function arrayEvens(array){
+  var evens = [];
+  for(var i=0;i<=array.length;i++){
+    if(array[i]%2==0){
+	evens.push(array[i]);
+    }
+  return evens;
+}
+
+// #6 - Given array of ints, print avg of odd ints
+function arrayOddsAvg(array){
+  var odds = [];
+  for(var i=0;i<=array.length;i++){
+    if(array[i]%2!=0){
+	odds.push(array[i]);
+    }
+  return odds/array.length;
+}
+
+// #7 - Given array of ints, replace negs with str 'negative', positives with str 'positive'
+function replaceArrayNonZeros(array){
+  for(var i=0;i<=array.length;i++){
+	if(array[i] > 0){
+	  array[i] = 'positive';
+	}
+	else if(array[i] < 0){
+	  array[i] = 'negative';
+	}
+  }
+  return array;
+}
+
+// #8 - Given array of ints, return sum of min and max
+function getMinMaxSum(array){
+  var min = 0;
+  var max = 0;
+  for(var i=0;i<=array.length;i++){
+	if(array[i] > max){
+	  max = array[i];
+	}
+	else if(array[i] < min){
+	  min = array[i];
+	}
+  }
+  return min + max;
+}
+
+// #9 - Given array, swap first and last
+function swapFirstLast(array){
+  var head = array[0];
+  var tail = array[array.length - 1];
+  array[0] = tail;
+  array[array.length-1] = head;
+  return array;
+}
+
+// #10 - Given array and int, return a count of how many ints are less than given int
+function getLessCount(array, num){
+  var count = 0;
+  for(var i=0;i<=array.length;i++){
+    if(array[i] < num){
+      count++;
+    }
+  }
+  return array;
+}
+
+// #11 - Given start and stop int, print ints from start to stop, inclusive
+function printStartToStop(start,stop){
+  for(var i = start;i<=stop;i++){
+    console.log(i);
+  }
+}
+
+// #12 - Given array, shift each item to the right 1 index, replace first with 0
+
+// Using unshift
+function arrayUnShift(array){
+  array.unshift(0);
+  return array;
+}
+
+// Without unshift
+function arrayUnShift(array){
+  var answer = [0];
+  for(var i=0;i<array.length;i++){
+    answer.push(array[i]);
+  }
+  return answer;
+}

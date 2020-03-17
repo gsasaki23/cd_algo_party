@@ -1,0 +1,61 @@
+/* 
+  Array: Concat
+  .push allowed
+  Replicate JavaScript's concat() which combines two arrays into one
+  Input: two arrays
+  Output: one array with the items of both in the original order
+  Examples:
+  Input: ['a', 'b'], [1, 2, 3]
+  Output: ['a', 'b', 1, 2, 3]
+*/
+function concat(arrayA, arrayB){
+  var answer = [];
+  for(var idx=0;idx<arrayA.length;idx++){
+    answer.push(arrayA[idx]);
+  }
+  for(var idx=0;idx<arrayB.length;idx++){
+    answer.push(arrayB[idx]);
+  }
+  return answer;
+}
+
+
+
+/* 
+  Array: Reverse
+  Reverse an array's items in place (don't create a new array).
+  Don't use any built in methods.
+  Examples:
+  Input: [1, 2, 3]
+  Output: [3, 2, 1]
+*/
+
+// original on whiteboard
+function reverse(array){
+  var counter = 0;
+  while(counter < Math.floor(array.length/2)){
+      var temp = array[counter];
+      array[counter]=array[array.length-1-counter];
+      array[array.length-1-counter] = temp;
+    counter++;
+  }
+  return array;
+}
+
+// with for loop instead
+function reverse2(array){
+  for(var idx=0;idx<Math.floor(array.length/2);idx++){
+    var temp = array[idx];
+    array[idx]=array[array.length-1-idx];
+    array[array.length-1-idx] = temp;
+  }
+  return array;
+}
+
+//with new destructuring assignment to swap indexes
+function reverse3(array){
+  for(var idx=0;idx<Math.floor(array.length/2);idx++){
+    [array[idx],array[array.length-1-idx]]=[array[array.length-1-idx],array[idx]];
+  }
+  return array;
+}
