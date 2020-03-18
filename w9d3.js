@@ -6,6 +6,7 @@ class BSTNode {
     }
 }
 
+// Binary Search Tree
 class BST {
     constructor() {
         this.root = null;
@@ -66,6 +67,18 @@ class BST {
         // no need if we remove the null checks
         return false;
     }
+
+    // returns size of BST
+    size(node = this.root) {
+        if (!node) {
+            return 0;
+        }
+        return 1 + this.size(node.left) + this.size(node.right);
+    }
+
+    // min recursive
+    // max recursive
+
 }
 
 
@@ -87,3 +100,7 @@ console.log("myBST.containsRecursive(10):");
 console.log(myBST.containsRecursive(10));
 console.log("myBST.containsRecursive(12):");
 console.log(myBST.containsRecursive(12));
+
+console.log("--------------");
+console.log("myBST.size():");
+console.log(myBST.size());
