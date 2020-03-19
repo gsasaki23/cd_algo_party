@@ -91,6 +91,17 @@ myBST.add(15);
 //  -5-10-20-
 //        V
 //    -15-20-
+
+/*
+check for 7
+tree:
+        10
+    5        20
+  X   X    15   X
+          X  X
+*/
+
+
 console.log(myBST);
 
 console.log("--------------");
