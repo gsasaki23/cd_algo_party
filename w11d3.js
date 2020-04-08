@@ -199,7 +199,7 @@ class LinkedList {
 //     Bonus: Split on Value
     splitOnVal(val){
         // Make sure SLL contains val
-        if (!this.contains(val)) return null;
+        if (!this.contains(val)) return new LinkedList();
 
         // Find node right before val
         let runner = this.head;
