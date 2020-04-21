@@ -1,7 +1,6 @@
-/* w3d1
-    1. recursiveLast: recursively return the value / data of the last node
-    2. SList: Partition
-        - partition a SList such that all values less than the given value are to the left of it, and all values greater than the given value are to the right (not perfectly sorted)
+/*   w3d2
+    1. Remove Negatives (in place)
+    2. recursiveMax - find the max int recursively
 */
 
 class Node {
@@ -12,10 +11,10 @@ class Node {
 }
 
 class LinkedList {
-    constructor() {
+    constructor(){
         this.head = null;
     }
-
+    
     isEmpty() {
         return this.head === null;
     }
@@ -260,38 +259,38 @@ class LinkedList {
     secondToLast() {
         if (this.isEmpty() || this.head.next === null) return null;
         let runner = this.head;
-        while (runner.next.next !== null) runner = runner.next;
+        while(runner.next.next !== null) runner = runner.next;
         return runner.data;
     }
 
     concat(another) {
-        if (another.isEmpty()) { return; }
-        if (this.isEmpty()) {
+        if (another.isEmpty()) {return;}
+        if (this.isEmpty()){
             this.head = another.head;
         }
         let runner = this.head;
-        while (runner.next !== null) {
+        while(runner.next !== null){
             runner = runner.next;
         }
         runner.next = another.head;
         return;
     }
 
-    insertPersonAscAge(person) {
+    insertPersonAscAge(person){
         // Edge case: Empty List (Early Exit)
-        if (this.isEmpty()) {
+        if (this.isEmpty()){
             this.insertAtFront(person);
         }
         let runner = this.head;
         // Edge Case: new person is not greater than the ONE person in list
-        if (runner.data.age >= person) {
+        if (runner.data.age >= person){
             let newNode = new Node(person);
             newNode.next = this.head;
             this.head = newNode;
         }
         // Else find right place and add
-        while (runner.next !== null) {
-            if (runner.next.data.age < person.age) {
+        while(runner.next !== null){
+            if (runner.next.data.age < person.age){
                 runner = runner.next;
             }
             else {
@@ -306,43 +305,15 @@ class LinkedList {
         runner.next = new Node(person);
     }
 
-    valAtBackRecursive(runner = this.head) {
-        if (this.isEmpty) { return null; }
-        if (!runner.next) { return runner.data; }
+    valAtBackRecursive(runner = this.head){
+        if (this.isEmpty){return null;}
+        if (!runner.next){return runner.data;}
         return this.valAtBackRecursive(runner.next);
     }
 
-    partition(val) {
-        if (this.contains(val) === false) {
-            return this;
-        }
+    // w3d2
+    // 1. Remove Negatives (in place)
+    // 2. recursiveMax - find the max int recursively
 
-        const smallerList = new SList();
-        const largerList = new SList();
-        let valCount = 1;
-
-        let runner = this.head;
-
-        while (runner) {
-            // insertAtFront for better performance than insertAtBack
-            if (runner.data < val) {
-                smallerList.insertAtFront(runner.data);
-            } else if (runner.data > val) {
-                largerList.insertAtFront(runner.data);
-            } else if (runner.data === val) {
-                valCount++;
-            }
-            runner = runner.next;
-        }
-        // ensure our given val is at the beginning of the larger list
-        for (let i = 0; i < valCount; ++i) {
-            largerList.insertAtFront(val);
-        }
-
-        smallerList.concat(largerList);
-
-        this.head = smallerList.head;
-        return this;
-    }
 
 }
