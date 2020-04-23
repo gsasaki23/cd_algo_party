@@ -58,8 +58,39 @@ class DoublyLinkedList {
     }
 
     isNodeInLeftHalf(node) {
-        // approach: make 2 runners, run it rightward and leftward
-        // return whichever has more nodes
+        let leftRunner = node, rightRunner = node;
+        while (leftRunner && rightRunner){
+            // if there are more RIGHT but not LEFT
+            if (rightRunner.next && !leftRunner.prev) return true;
+            // if there are more LEFT but not RIGHT
+            else if (!rightRunner.next && leftRunner.prev) return false;
+            // if there are neither LEFT or RIGHT = odd # nodes, and it was the middle
+            else if (!rightRunner.next && !leftRunner.prev) return false;
+
+            // if none of the above matched, there are more RIGHT and LEFT 
+            rightRunner = rightRunner.next;
+            leftRunner = leftRunner.next;
+        }
+        // if all else fails
+        return false;
+
+        // Neil's approach: make 2 runners, run it rightward and leftward, return whichever has more nodes
+        /*
+        let nodesToLeft = 0, nodesToRight = 0;
+        let leftRunner = node, rightRunner = node;
+
+        while (leftRunner) {
+            nodesToLeft++;
+            leftRunner = leftRunner.prev;
+        }
+
+        while (rightRunner) {
+            nodesToRight++;
+            rightRunner = rightRunner.next;
+        }
+
+        return nodesToLeft < nodesToRight;
+        */
     }
 
 }
